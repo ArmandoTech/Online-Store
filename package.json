@@ -1,37 +1,31 @@
 {
-  "name": "online-store",
+  "name": "my-store",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "lint": "eslint",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ArmandoTech/Online-Store.git"
+    "lint": "eslint"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ArmandoTech/Online-Store/issues"
-  },
-  "homepage": "https://github.com/ArmandoTech/Online-Store#readme",
   "devDependencies": {
-    "eslint": "^8.20.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "nodemon": "^2.0.19",
-    "prettier": "^2.7.1"
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2"
   },
   "dependencies": {
-    "@hapi/boom": "^10.0.0",
+    "@hapi/boom": "^9.1.4",
     "cors": "^2.8.5",
-    "express": "^4.18.1",
+    "express": "^4.17.1",
     "faker": "^5.5.3",
-    "joi": "^17.6.0"
+    "joi": "^17.4.2"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
