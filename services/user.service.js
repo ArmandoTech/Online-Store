@@ -1,43 +1,41 @@
-const { Boom } = require('@hapi/boom')
-const {pool} = require('../libs/postgres.pool')
-const { models } = require('./../libs/sequelize')
-
+const { Boom } = require('@hapi/boom');
+const { User } = require('../db_sequelize/models/user.model.js');
+const { pool } = require('../libs/postgres.pool');
 
 class UserService {
   constructor() {
-    this.pool = pool
-    this.pool.on('error', err => console.error(err))
+    this.pool = pool;
   }
 
   async create(data) {
-    const user = models.User.create(data)
-    return user
+    const user = await User.create(data);
+    return user;
   }
 
   async find() {
-    const response= await models.User.findAll()
-    return response
+    const response = await User.findAll();
+    return response;
   }
 
   async findOne(id) {
-    const user = await models.User.findByPk(id)
+    const user = await User.findByPk(id);
     if (!user) {
-      Boom.notFound('User not found')
+      Boom.notFound('User not found');
     }
-    return user
+    return user;
   }
 
   async update(id, changes) {
-    const user = this.findOne(id)
-    const response = await user.update(changes)
-    return response
+    const user = await this.findOne(id);
+    const response = await user.update(changes);
+    return response;
   }
 
   async delete(id) {
-    const user = this.findOne(id)
-    await user.destroy()
-    return { id }
+    const user = await this.findOne(id);
+    await user.destroy();
+    return { id };
   }
 }
 
-module.exports = UserService
+module.exports = UserService;
